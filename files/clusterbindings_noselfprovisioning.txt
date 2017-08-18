@@ -1,0 +1,289 @@
+Name:								:default
+Namespace:							<none>
+Created:							46 hours ago
+Labels:								<none>
+Annotations:							<none>
+Last Modified:							2017-08-17 09:50:01 -0400 EDT
+Policy:								<none>
+RoleBinding[basic-users]:					 
+								Role:			basic-user
+								Users:			<none>
+								Groups:			system:authenticated
+								ServiceAccounts:	<none>
+								Subjects:		<none>
+RoleBinding[cluster-admins]:					 
+								Role:			cluster-admin
+								Users:			system:admin
+								Groups:			system:cluster-admins, ocp-platform
+								ServiceAccounts:	<none>
+								Subjects:		<none>
+RoleBinding[cluster-readers]:					 
+								Role:			cluster-reader
+								Users:			<none>
+								Groups:			system:cluster-readers
+								ServiceAccounts:	management-infra/management-admin, default/router
+								Subjects:		<none>
+RoleBinding[cluster-status-binding]:				 
+								Role:			cluster-status
+								Users:			<none>
+								Groups:			system:authenticated, system:unauthenticated
+								ServiceAccounts:	<none>
+								Subjects:		<none>
+RoleBinding[hawkular-metrics-admin]:				 
+								Role:			hawkular-metrics-admin
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	management-infra/management-admin
+								Subjects:		<none>
+RoleBinding[heapster-cluster-reader]:				 
+								Role:			cluster-reader
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/heapster, logging/aggregated-logging-fluentd, management-infra/management-admin
+								Subjects:		<none>
+RoleBinding[rolebinding-reader]:				 
+								Role:			rolebinding-reader
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	logging/aggregated-logging-elasticsearch
+								Subjects:		<none>
+RoleBinding[router-router-role]:				 
+								Role:			system:router
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	default/router
+								Subjects:		<none>
+RoleBinding[self-access-reviewers]:				 
+								Role:			self-access-reviewer
+								Users:			<none>
+								Groups:			system:authenticated, system:unauthenticated
+								ServiceAccounts:	<none>
+								Subjects:		<none>
+RoleBinding[self-provisioners]:					 
+								Role:			self-provisioner
+								Users:			<none>
+								Groups:			ocp-production
+								ServiceAccounts:	management-infra/management-admin
+								Subjects:		<none>
+RoleBinding[system:build-controller]:				 
+								Role:			system:build-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/build-controller
+								Subjects:		<none>
+RoleBinding[system:build-strategy-docker-binding]:		 
+								Role:			system:build-strategy-docker
+								Users:			<none>
+								Groups:			system:authenticated
+								ServiceAccounts:	<none>
+								Subjects:		<none>
+RoleBinding[system:build-strategy-jenkinspipeline-binding]:	 
+								Role:			system:build-strategy-jenkinspipeline
+								Users:			<none>
+								Groups:			system:authenticated
+								ServiceAccounts:	<none>
+								Subjects:		<none>
+RoleBinding[system:build-strategy-source-binding]:		 
+								Role:			system:build-strategy-source
+								Users:			<none>
+								Groups:			system:authenticated
+								ServiceAccounts:	<none>
+								Subjects:		<none>
+RoleBinding[system:certificate-signing-controller]:		 
+								Role:			system:certificate-signing-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/certificate-signing-controller
+								Subjects:		<none>
+RoleBinding[system:daemonset-controller]:			 
+								Role:			system:daemonset-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/daemonset-controller
+								Subjects:		<none>
+RoleBinding[system:deployment-controller]:			 
+								Role:			system:deployment-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/deployment-controller
+								Subjects:		<none>
+RoleBinding[system:deploymentconfig-controller]:		 
+								Role:			system:deploymentconfig-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/deploymentconfig-controller
+								Subjects:		<none>
+RoleBinding[system:discovery-binding]:				 
+								Role:			system:discovery
+								Users:			<none>
+								Groups:			system:authenticated, system:unauthenticated
+								ServiceAccounts:	<none>
+								Subjects:		<none>
+RoleBinding[system:disruption-controller]:			 
+								Role:			system:disruption-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/disruption-controller
+								Subjects:		<none>
+RoleBinding[system:endpoint-controller]:			 
+								Role:			system:endpoint-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/endpoint-controller
+								Subjects:		<none>
+RoleBinding[system:gc-controller]:				 
+								Role:			system:gc-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/gc-controller
+								Subjects:		<none>
+RoleBinding[system:hpa-controller]:				 
+								Role:			system:hpa-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/hpa-controller
+								Subjects:		<none>
+RoleBinding[system:image-auditor]:				 
+								Role:			system:image-auditor
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	management-infra/management-admin
+								Subjects:		<none>
+RoleBinding[system:image-puller]:				 
+								Role:			system:image-puller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	management-infra/inspector-admin
+								Subjects:		<none>
+RoleBinding[system:job-controller]:				 
+								Role:			system:job-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/job-controller
+								Subjects:		<none>
+RoleBinding[system:masters]:					 
+								Role:			system:master
+								Users:			<none>
+								Groups:			system:masters
+								ServiceAccounts:	<none>
+								Subjects:		<none>
+RoleBinding[system:namespace-controller]:			 
+								Role:			system:namespace-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/namespace-controller
+								Subjects:		<none>
+RoleBinding[system:node-admins]:				 
+								Role:			system:node-admin
+								Users:			system:master
+								Groups:			system:node-admins
+								ServiceAccounts:	<none>
+								Subjects:		<none>
+RoleBinding[system:node-bootstrapper]:				 
+								Role:			system:node-bootstrapper
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/node-bootstrapper
+								Subjects:		<none>
+RoleBinding[system:node-proxiers]:				 
+								Role:			system:node-proxier
+								Users:			<none>
+								Groups:			system:nodes
+								ServiceAccounts:	<none>
+								Subjects:		<none>
+RoleBinding[system:nodes]:					 
+								Role:			system:node
+								Users:			<none>
+								Groups:			system:nodes
+								ServiceAccounts:	<none>
+								Subjects:		<none>
+RoleBinding[system:oauth-token-deleters]:			 
+								Role:			system:oauth-token-deleter
+								Users:			<none>
+								Groups:			system:authenticated, system:unauthenticated
+								ServiceAccounts:	<none>
+								Subjects:		<none>
+RoleBinding[system:pv-attach-detach-controller]:		 
+								Role:			system:pv-attach-detach-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/pv-attach-detach-controller
+								Subjects:		<none>
+RoleBinding[system:pv-binder-controller]:			 
+								Role:			system:pv-binder-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/pv-binder-controller
+								Subjects:		<none>
+RoleBinding[system:pv-provisioner-controller]:			 
+								Role:			system:pv-provisioner-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/pv-provisioner-controller
+								Subjects:		<none>
+RoleBinding[system:pv-recycler-controller]:			 
+								Role:			system:pv-recycler-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/pv-recycler-controller
+								Subjects:		<none>
+RoleBinding[system:registry]:					 
+								Role:			system:registry
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	default/registry
+								Subjects:		<none>
+RoleBinding[system:replicaset-controller]:			 
+								Role:			system:replicaset-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/replicaset-controller
+								Subjects:		<none>
+RoleBinding[system:replication-controller]:			 
+								Role:			system:replication-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/replication-controller
+								Subjects:		<none>
+RoleBinding[system:sdn-readers]:				 
+								Role:			system:sdn-reader
+								Users:			<none>
+								Groups:			system:nodes
+								ServiceAccounts:	<none>
+								Subjects:		<none>
+RoleBinding[system:service-ingress-ip-controller]:		 
+								Role:			system:service-ingress-ip-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/service-ingress-ip-controller
+								Subjects:		<none>
+RoleBinding[system:service-load-balancer-controller]:		 
+								Role:			system:service-load-balancer-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/service-load-balancer-controller
+								Subjects:		<none>
+RoleBinding[system:service-serving-cert-controller]:		 
+								Role:			system:service-serving-cert-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/service-serving-cert-controller
+								Subjects:		<none>
+RoleBinding[system:statefulset-controller]:			 
+								Role:			system:statefulset-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/statefulset-controller
+								Subjects:		<none>
+RoleBinding[system:unidling-controller]:			 
+								Role:			system:unidling-controller
+								Users:			<none>
+								Groups:			<none>
+								ServiceAccounts:	openshift-infra/unidling-controller
+								Subjects:		<none>
+RoleBinding[system:webhooks]:					 
+								Role:			system:webhook
+								Users:			<none>
+								Groups:			system:authenticated, system:unauthenticated
+								ServiceAccounts:	<none>
+								Subjects:		<none>

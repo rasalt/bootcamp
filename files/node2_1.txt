@@ -1,0 +1,14 @@
+NAME                                   READY     STATUS             RESTARTS   AGE
+hello-openshift-1-qrjj9                1/1       Running            0          1d
+shelly-1-lpvl1                         1/1       Running            0          1d
+logging-es-ml82oxr7-1-pm1r7            0/1       CrashLoopBackOff   298        1d
+logging-fluentd-qpd51                  1/1       Running            0          3h
+hawkular-cassandra-1-bxbn3             1/1       Running            0          3h
+centos-root-docker-example-1-build     0/1       Completed          0          21h
+centos-root-docker-example-1-kmv06     1/1       Running            0          21h
+shelly-1-x4jcg                         1/1       Running            0          1d
+cakephp-ex-1-34r76                     1/1       Running            0          13m
+hello-openshift-1-2x26n                1/1       Running            0          14m
+hello-openshift-1-jf6bk                1/1       Running            0          14m
+simple-openshift-sinatra-sti-1-zhszz   1/1       Running            0          13m
+hello-openshift-1-hs34s                1/1       Running            0          1d

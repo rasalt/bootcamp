@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  creationTimestamp: null
+  name: hello-openshift
+spec:
+  cpuUtilization:
+    targetPercentage: 20
+  maxReplicas: 5
+  minReplicas: 1
+  scaleRef:
+    apiVersion: v1
+    kind: DeploymentConfig
+    name: hello-openshift
+    subresource: scale

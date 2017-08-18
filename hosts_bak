@@ -1,0 +1,55 @@
+[OSEv3:vars]
+
+###########################################################################
+### Ansible Vars
+###########################################################################
+timeout=60
+ansible_become=yes
+ansible_ssh_user=ec2-user
+openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
+
+openshift_master_default_subdomain=apps.test.example.com
+deployment_type=openshift-enterprise
+openshift_release=v3.5
+openshift_master_cluster_hostname=loadbalancer1.rdu19.example.opentlc.com
+openshift_master_cluster_public_hostname=loadbalancer1.rdu19.example.opentlc.com
+openshift_master_cluster_method=native
+openshift_master_default_subdomain=rdu19.example.opentlc.com
+
+[OSEv3:children]
+lb
+masters
+etcd
+nodes
+nfs
+
+[lb]
+loadbalancer1.rdu19.internal host_zone=us-east-1c
+
+[masters]
+master1.rdu19.internal host_zone=us-east-1c
+master2.rdu19.internal host_zone=us-east-1c
+master3.rdu19.internal host_zone=us-east-1c
+
+[etcd]
+master1.rdu19.internal host_zone=us-east-1c
+master2.rdu19.internal host_zone=us-east-1c
+master3.rdu19.internal host_zone=us-east-1c
+
+[nodes]
+## These are the masters
+master1.rdu19.internal openshift_hostname=master1.rdu19.internal ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/.ssh/ocpkey.pem openshift_node_labels="{'logging':'false','openshift_schedulable':'False','cluster': 'rdu19', 'zone': 'us-east-1c'}"
+master2.rdu19.internal openshift_hostname=master2.rdu19.internal ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/.ssh/ocpkey.pem openshift_node_labels="{'logging':'false','openshift_schedulable':'False','cluster': 'rdu19', 'zone': 'us-east-1c'}"
+master3.rdu19.internal openshift_hostname=master3.rdu19.internal ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/.ssh/ocpkey.pem openshift_node_labels="{'logging':'false','openshift_schedulable':'False','cluster': 'rdu19', 'zone': 'us-east-1c'}"
+
+## These are infranodes
+infranode1.rdu19.internal openshift_hostname=infranode1.rdu19.internal openshift_ip=192.199.0.198 ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/.ssh/ocpkey.pem openshift_node_labels="{'logging':'false','cluster': 'rdu19', 'env':'infra', 'zone': 'us-east-1c','env': 'infra'}"
+infranode2.rdu19.internal openshift_hostname=infranode2.rdu19.internal openshift_ip=192.199.0.88 ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/.ssh/ocpkey.pem openshift_node_labels="{'logging':'false','cluster': 'rdu19', 'env':'infra', 'zone': 'us-east-1c', 'env': 'infra'}"
+
+## These are regular nodes
+node1.rdu19.internal openshift_hostname=node1.rdu19.internal openshift_ip=192.199.0.215 ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/.ssh/ocpkey.pem openshift_node_labels="{'logging':'false','cluster': 'rdu19', 'env':'users', 'zone': 'us-east-1c', 'env': 'app'}"
+node2.rdu19.internal openshift_hostname=node2.rdu19.internal openshift_ip=192.199.0.196 ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/.ssh/ocpkey.pem openshift_node_labels="{'logging':'false','cluster': 'rdu19', 'env':'users', 'zone': 'us-east-1c', 'env': 'app'}"
+node3.rdu19.internal openshift_hostname=node3.rdu19.internal openshift_ip=192.199.0.50 ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/.ssh/ocpkey.pem openshift_node_labels="{'logging':'false','cluster': 'rdu19', 'env':'users', 'zone': 'us-east-1c', 'env': 'app'}"
+
+[nfs]
+support1.rdu19.internal openshift_hostname=support1.rdu19.internal openshift_ip=192.199.0.114 ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/.ssh/ocpkey.pem

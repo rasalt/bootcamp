@@ -1,0 +1,31 @@
+kind: LDAPSyncConfig
+apiVersion: v1
+url: ldap://ipa.shared.example.opentlc.com
+ca: /etc/origin/master/ipa-ca.crt
+bindPassword: "r3dh4t1!"
+bindDN: "uid=admin,cn=users,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com"
+groupUIDNameMapping:
+  "cn=portalapp,cn=groups,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com": portalapp 
+  "cn=ocp-platform,cn=groups,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com": ocp-platform
+  "cn=ocp-platform,cn=groups,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com": ocp-platform
+  "cn=paymentapp,cn=groups,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com": paymentapp
+insecure: false 
+rfc2307:
+    groupsQuery:
+        baseDN: "cn=groups,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com"
+        scope: sub
+        derefAliases: never
+        pageSize: 0
+        filter: (&(|(cn=portalapp)(cn=paymentapp)(cn=ocp-production)(cn=ocp-platform))(!(objectClass=mepManagedEntry))(!(cn=trust admins))(!(cn=groups))(!(cn=admins))(!(cn=ipausers))(!(cn=editors))(!(cn=ocp-users))(!(cn=evmgroup*))(!(cn=ipac*)))
+    groupUIDAttribute: dn 
+    groupNameAttributes: [ cn ] 
+    groupMembershipAttributes: [ member ] 
+    usersQuery:
+        baseDN: "cn=users,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com"
+        scope: sub
+        derefAliases: never
+        pageSize: 0
+    userUIDAttribute: dn 
+    userNameAttributes: [ uid ] 
+    tolerateMemberNotFoundErrors: false
+    tolerateMemberOutOfScopeErrors: false

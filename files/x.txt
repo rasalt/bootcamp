@@ -1,0 +1,143 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kubernetes.io/created-by: |
+      {"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicationController","namespace":"default","name":"docker-registry-1","uid":"34dd7bb7-81d5-11e7-935a-0a26988e9f2e","apiVersion":"v1","resourceVersion":"25842"}}
+    openshift.io/deployment-config.latest-version: "1"
+    openshift.io/deployment-config.name: docker-registry
+    openshift.io/deployment.name: docker-registry-1
+    openshift.io/scc: hostnetwork
+  creationTimestamp: 2017-08-15T19:44:53Z
+  generateName: docker-registry-1-
+  labels:
+    deployment: docker-registry-1
+    deploymentconfig: docker-registry
+    docker-registry: default
+  name: docker-registry-1-92nnw
+  namespace: default
+  resourceVersion: "27449"
+  selfLink: /api/v1/namespaces/default/pods/docker-registry-1-92nnw
+  uid: 358fc3a8-81f2-11e7-935a-0a26988e9f2e
+spec:
+  containers:
+  - env:
+    - name: REGISTRY_HTTP_ADDR
+      value: :5000
+    - name: REGISTRY_HTTP_NET
+      value: tcp
+    - name: REGISTRY_HTTP_SECRET
+      value: jh3SpuwGCdzRfZ7bH24kIMLJI0ESlpjgrye7y6iyPzk=
+    - name: REGISTRY_MIDDLEWARE_REPOSITORY_OPENSHIFT_ENFORCEQUOTA
+      value: "false"
+    - name: REGISTRY_HTTP_TLS_KEY
+      value: /etc/secrets/registry.key
+    - name: REGISTRY_HTTP_TLS_CERTIFICATE
+      value: /etc/secrets/registry.crt
+    image: openshift3/ose-docker-registry:v3.5.5.31
+    imagePullPolicy: IfNotPresent
+    livenessProbe:
+      failureThreshold: 3
+      httpGet:
+        path: /healthz
+        port: 5000
+        scheme: HTTPS
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 5
+    name: registry
+    ports:
+    - containerPort: 5000
+      protocol: TCP
+    readinessProbe:
+      failureThreshold: 3
+      httpGet:
+        path: /healthz
+        port: 5000
+        scheme: HTTPS
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 5
+    resources:
+      requests:
+        cpu: 100m
+        memory: 256Mi
+    securityContext:
+      capabilities:
+        drop:
+        - KILL
+        - MKNOD
+        - SETGID
+        - SETUID
+        - SYS_CHROOT
+      privileged: false
+      runAsUser: 1000030000
+      seLinuxOptions:
+        level: s0:c6,c0
+    terminationMessagePath: /dev/termination-log
+    volumeMounts:
+    - mountPath: /registry
+      name: registry-storage
+    - mountPath: /etc/secrets
+      name: registry-certificates
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: registry-token-csjr3
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  imagePullSecrets:
+  - name: registry-dockercfg-74tw6
+  nodeName: infranode1.rdu19.internal
+  nodeSelector:
+    env: infra
+  restartPolicy: Always
+  securityContext:
+    fsGroup: 1000030000
+    seLinuxOptions:
+      level: s0:c6,c0
+    supplementalGroups:
+    - 1000030000
+  serviceAccount: registry
+  serviceAccountName: registry
+  terminationGracePeriodSeconds: 30
+  volumes:
+  - name: registry-storage
+    persistentVolumeClaim:
+      claimName: registry-claim
+  - name: registry-certificates
+    secret:
+      defaultMode: 420
+      secretName: registry-certificates
+  - name: registry-token-csjr3
+    secret:
+      defaultMode: 420
+      secretName: registry-token-csjr3
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: 2017-08-15T19:44:53Z
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: 2017-08-15T19:51:00Z
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: 2017-08-15T19:44:53Z
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://4d48645e90ed471f423aa64c9b8fbb745ed2e9feacb2773ce8fc9732b4980e76
+    image: openshift3/ose-docker-registry:v3.5.5.31
+    imageID: docker-pullable://registry.access.redhat.com/openshift3/ose-docker-registry@sha256:471a1cf906ab76de5ef47487644fc9cc34104f94371c22670e12ee02012acef2
+    lastState: {}
+    name: registry
+    ready: true
+    restartCount: 0
+    state:
+      running:
+        startedAt: 2017-08-15T19:50:52Z
+  hostIP: 192.199.0.198
+  phase: Running
+  podIP: 10.1.6.8
+  startTime: 2017-08-15T19:44:53Z

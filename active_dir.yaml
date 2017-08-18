@@ -1,0 +1,22 @@
+kind: LDAPSyncConfig
+apiVersion: v1
+url: ldap://ipa.shared.example.opentlc.com 
+insecure: false 
+rfc2307:
+    groupsQuery:
+        baseDN: "cn=groups,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com"
+        scope: sub
+        derefAliases: never
+        pageSize: 0
+    groupUIDAttribute: dn 
+    groupNameAttributes: [ cn ] 
+    groupMembershipAttributes: [ member ] 
+    usersQuery:
+        baseDN: "cn=users,cn=accounts,dc=shared,dc=example,dc=opentlc,dc=com"
+        scope: sub
+        derefAliases: never
+        pageSize: 0
+    userUIDAttribute: dn 
+    userNameAttributes: [ mail ] 
+    tolerateMemberNotFoundErrors: false
+    tolerateMemberOutOfScopeErrors: false
